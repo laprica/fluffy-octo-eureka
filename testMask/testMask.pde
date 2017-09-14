@@ -45,8 +45,7 @@ void drawCanvas(){
 }
 
 void makeNewBox(){
-  int r,g,b = random(225),random(225),random(225);
-  Box x = new Box(190,100,10,100,color(225,30,90),279);
+  Box x = new Box(190,100,10,100,color(random(225),random(225),random(225)),279);
   ctrl = x;
   boxes.add(ctrl);
   widSlid.setValue(100);
