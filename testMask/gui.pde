@@ -39,7 +39,7 @@ public void createGUI(){
   newLayerButton = new GButton(this, 1041, 295, 100, 50);
   newLayerButton.setText("New Mask");
   newLayerButton.addEventHandler(this, "button1_click1");
-  widSlid = new GSlider(this, 847, 413, 223, 40, 25.0);
+  widSlid = new GSlider(this, 865, 488, 223, 40, 25.0);
   widSlid.setShowValue(true);
   widSlid.setShowLimits(true);
   widSlid.setLimits(50.0, 0.0, 420.0);
@@ -48,16 +48,16 @@ public void createGUI(){
   widSlid.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   widSlid.setOpaque(true);
   widSlid.addEventHandler(this, "slider1_change1");
-  posSlid = new GSlider(this, 848, 474, 224, 73, 30.0);
+  posSlid = new GSlider(this, 862, 385, 224, 73, 30.0);
   posSlid.setLimits(120.0, 120.0, 540.0);
   posSlid.setNumberFormat(G4P.DECIMAL, 2);
   posSlid.setOpaque(false);
   posSlid.addEventHandler(this, "posSlid_change1");
-  widLab = new GLabel(this, 750, 369, 80, 20);
+  widLab = new GLabel(this, 759, 499, 80, 20);
   widLab.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   widLab.setText("Width");
   widLab.setOpaque(false);
-  posLab = new GLabel(this, 713, 533, 120, 52);
+  posLab = new GLabel(this, 733, 394, 120, 52);
   posLab.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   posLab.setText("Position");
   posLab.setOpaque(false);

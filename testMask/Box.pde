@@ -1,4 +1,6 @@
 class Box{
+  // allows for display of rectangles on the screen
+  // to represent substrate, layer, mask, etc
   int x, y;
   int wd, ht;
   color col, otln;
@@ -16,6 +18,8 @@ class Box{
   }
   
   void display(){
+    // only display if should be shown
+    // an outline will show if it is the active block
     if(show){
       if(isControl){
         strokeWeight(10);
@@ -30,6 +34,7 @@ class Box{
   }
   
   boolean isPressed(int mx, int my){
+    // check if the mouse cursor is within the bounds of the box
     return ((mx > x) && (mx < x+wd) && (my>y) && (my<y+ht));
   }
   
