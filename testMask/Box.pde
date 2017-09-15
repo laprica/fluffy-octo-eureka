@@ -2,7 +2,7 @@ class Box{
   int x, y;
   int wd, ht;
   color col, otln;
-  boolean show;
+  boolean show, isControl;
   
   Box(int boxX, int boxY, int boxW, int boxH, color boxC, color boxO){
     x = boxX;
@@ -12,13 +12,25 @@ class Box{
     col = boxC;
     otln = boxO;
     show = true;
+    isControl = false;
   }
   
   void display(){
     if(show){
+      if(isControl){
+        strokeWeight(10);
+      }
+      else{
+        strokeWeight(1);
+      }
       fill(col);
       stroke(otln);
-      rect(x-wd/2,y-ht/2,wd,ht);
+      rect(x,y,wd,ht);
     }
   }
+  
+  boolean isPressed(int mx, int my){
+    return ((mx > x) && (mx < x+wd) && (my>y) && (my<y+ht));
+  }
+  
 }

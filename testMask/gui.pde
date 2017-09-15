@@ -16,7 +16,7 @@
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:newLayerButton:744727:
   println("newLayerButton - GButton >> GEvent." + event + " @ " + millis());
-  makeNewBox();
+  makeNewMaskBox();
 } //_CODE_:newLayerButton:744727:
 
 public void slider1_change1(GSlider source, GEvent event) { //_CODE_:widSlid:526036:

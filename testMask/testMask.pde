@@ -8,20 +8,20 @@ Box base;
 Box mask;
 Box ctrl;
 ArrayList<Box> boxes;
-boolean mouseDown;
+ArrayList<Box> mboxes;
 
 void setup(){
   size(1280,720);
-  //printArray(PFont.list());
   f = createFont("Verdana",24);
   textFont(f);
   textAlign(CENTER,CENTER);
   base = new Box(120,500,420,100,200,279);
-  mask = new Box(170,100,10,100,color(20,30,90),279);
+  mask = new Box(120,100,10,100,color(20,30,90),color(255,0,0));
   ctrl = mask;
   boxes = new ArrayList<Box>();
+  mboxes = new ArrayList<Box>();
   boxes.add(base);
-  boxes.add(mask);
+  mboxes.add(mask);
   createGUI();
   customGUI();
 }
@@ -32,10 +32,14 @@ void draw(){
   drawCanvas();
   //update(mouseX,mouseY);
   //base.display();
+  for(Box a: mboxes){
+    a.display();
+  }
   for(Box a: boxes){
     a.show = true;
     a.display();
   }
+  
 }
 
 void drawCanvas(){
@@ -44,10 +48,10 @@ void drawCanvas(){
   rect(50,50,580,610);
 }
 
-void makeNewBox(){
-  Box x = new Box(190,100,10,100,color(random(225),random(225),random(225)),279);
-  ctrl = x;
-  boxes.add(ctrl);
+void makeNewMaskBox(){
+  Box x = new Box(120,100,10,100,color(random(225),random(225),random(225)),color(255,0,0));
+  makeActiveBox(x);
+  mboxes.add(ctrl);
   widSlid.setValue(100);
   posSlid.setValue(190);
 }
@@ -57,4 +61,21 @@ void customGUI(){
   newLayerButton.setFont(font);
   widLab.setFont(font);
   posLab.setFont(font);
+}
+
+void makeActiveBox(Box b){
+  ctrl.isControl = false;
+  ctrl = b;
+  widSlid.setValue(ctrl.wd);
+  posSlid.setValue(ctrl.x);
+  ctrl.isControl = true;
+}
+
+void mousePressed(){
+  for(Box a : mboxes){
+    if(a.isPressed(mouseX,mouseY)){
+      makeActiveBox(a);
+      break;
+    }
+  }
 }
