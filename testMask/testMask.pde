@@ -87,7 +87,7 @@ void customGUI(){
   
   // Make font more readable
   Font font = new Font("Verdana", Font.BOLD,24);
-  newLayerButton.setFont(font);
+  newMaskButton.setFont(font);
   widLab.setFont(font);
   posLab.setFont(font);
 }
